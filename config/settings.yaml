@@ -1,0 +1,28 @@
+# Daily Pilot — general settings. Secrets live in .env, not here.
+
+# IANA timezone, e.g. "Africa/Cairo". Empty = the Mac's local timezone.
+timezone: ""
+
+# SQLite database for tasks and processed-mail history (relative to the project).
+# database: data/daily_pilot.sqlite3   # default: <data dir>/daily_pilot.sqlite3
+
+llm:
+  url: http://localhost:11434
+  model: qwen3.5:9b          # use qwen3.5:4b for faster/lighter runs (or --model)
+  timeout_seconds: 180
+
+# When launchd runs each job (used by scripts/install_launchd.sh).
+schedule:
+  news_digest: "08:00"       # daily Telegram news digest
+  daily_plan: "07:30"        # daily routine/plan
+  mail_every_minutes: 15     # Gmail triage interval
+
+plan:
+  day_start: "09:00"
+  day_end: "18:00"
+  buffer_minutes: 10         # gap kept around meetings and between tasks
+  min_slot_minutes: 15
+  llm_intro: true            # 2-sentence summary written by the local model
+  calendar_ids: [primary]
+  routine:                   # fixed daily blocks
+    - {title: Lunch, start: "13:00", end: "13:45"}

@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+secrets/*
+!secrets/.gitkeep
+data/*.sqlite3
+data/*.json
+data/logs/
+launchd/generated/
+.DS_Store
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
+
+# local tooling
+.ignore
+graft/

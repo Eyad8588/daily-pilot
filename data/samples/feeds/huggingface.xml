@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>Hugging Face Blog</title><link>https://huggingface.co/blog</link><description>sample</description>
+<item><title>Qwen3.5 embeddings: small models, strong retrieval</title><link>https://example.com/hf/qwen-embed</link><pubDate>Tue, 17 Nov 2026 14:00:00 GMT</pubDate><description>A look at qwen3-embedding 0.6B for RAG: MTEB scores, Matryoshka dimensions and hybrid search with BM25.</description></item>
+<item><title>Fine-tuning small transformers on Apple Silicon with PyTorch MPS</title><link>https://example.com/hf/mps-finetune</link><pubDate>Mon, 16 Nov 2026 15:00:00 GMT</pubDate><description>Step-by-step guide to fine-tuning a classifier on the MPS backend, with mixed precision tips.</description></item>
+<item><title>Running a 9B model at 60 tok/s on an M5 MacBook with MLX</title><link>https://example.com/hf/mlx-m5-dup</link><pubDate>Tue, 17 Nov 2026 20:00:00 GMT</pubDate><description>Same story as on Hacker News: MLX benchmarks of a 4-bit 9B model on the M5.</description></item>
+</channel></rss>

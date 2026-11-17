@@ -1,0 +1,15 @@
+# Gmail assistant. The app can only READ mail and CREATE DRAFTS — it never sends.
+query: "in:inbox newer_than:2d -category:promotions -category:social"
+max_per_run: 25
+max_body_chars: 3000
+
+create_drafts: false          # true = write reply drafts into Gmail → Drafts (review & send yourself)
+create_drafts_for: [urgent, action]
+signature_name: Eyad
+
+rules:
+  vip_senders:                # never classified below "action" (substring or glob)
+    - "*@yourcompany.com"
+  low_senders:                # always "low", skips the LLM
+    - "noreply@medium.com"
+    - "*@mailchimp*"

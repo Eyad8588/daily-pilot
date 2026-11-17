@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>Hacker News: AI</title><link>https://news.ycombinator.com/</link><description>sample</description>
+<item><title>Running a 9B model at 60 tok/s on an M5 MacBook with MLX</title><link>https://example.com/hn/mlx-m5</link><pubDate>Tue, 17 Nov 2026 21:00:00 GMT</pubDate><description>Benchmarks of MLX vs llama.cpp on Apple's M5 for 4-bit quantized local LLMs, including prompt processing and KV cache reuse.</description></item>
+<item><title>Prompt injection in MCP tool descriptions: a field study</title><link>https://example.com/hn/mcp-injection</link><pubDate>Tue, 17 Nov 2026 18:30:00 GMT</pubDate><description>Researchers scanned 3,000 public MCP servers and found hidden instructions in tool descriptions that hijack AI agents.</description></item>
+<item><title>Show HN: I built a mechanical keyboard out of wood</title><link>https://example.com/hn/keyboard</link><pubDate>Tue, 17 Nov 2026 16:00:00 GMT</pubDate><description>A weekend project with walnut keycaps.</description></item>
+<item><title>Ollama adds structured outputs streaming and tool-call parallelism</title><link>https://example.com/hn/ollama-release</link><pubDate>Tue, 17 Nov 2026 12:00:00 GMT</pubDate><description>The new Ollama release streams JSON-schema constrained output and runs multiple tool calls in parallel for agents.</description></item>
+<item><title>The best sourdough starter, scientifically</title><link>https://example.com/hn/sourdough</link><pubDate>Tue, 17 Nov 2026 10:00:00 GMT</pubDate><description>Microbiology of a happy starter.</description></item>
+</channel></rss>

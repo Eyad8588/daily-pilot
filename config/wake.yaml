@@ -1,0 +1,17 @@
+# Wake actions — run when the Mac wakes. Only the action types below exist
+# (open_app, open_url, start_ollama, notify, good_morning); there is no arbitrary
+# shell. Apps and URL hosts must also be listed in `allow`.
+min_interval_minutes: 30      # debounce: ignore wakes closer together than this
+greeting: "Good morning, Eyad! ☀️"
+
+allow:
+  apps: [Telegram, Visual Studio Code, Ollama, Notion, Calendar]
+  url_hosts: [mail.google.com, calendar.google.com, news.ycombinator.com, huggingface.co]
+
+actions:
+  - {name: ollama, type: start_ollama}
+  - {name: morning-message, type: good_morning, once_per_day: true, between: ["05:00", "12:00"]}
+  - {name: calendar, type: open_url, url: "https://calendar.google.com/", once_per_day: true, between: ["05:00", "12:00"], weekdays: [mon, tue, wed, thu, fri, sun]}
+  - {name: gmail, type: open_url, url: "https://mail.google.com/", once_per_day: true, between: ["05:00", "12:00"]}
+  - {name: editor, type: open_app, app: Visual Studio Code, weekdays: [mon, tue, wed, thu, fri, sun]}
+  - {name: hello, type: notify, message: "Daily Pilot ran your wake actions"}

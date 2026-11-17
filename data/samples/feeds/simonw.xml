@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Simon Willison's Weblog</title><id>https://simonwillison.net/</id><updated>2026-11-17T22:00:00Z</updated>
+<entry><title>Agents that only draft: a safer pattern for email assistants</title><link href="https://example.com/simonw/drafts-only"/><id>sw1</id><updated>2026-11-17T22:00:00Z</updated><summary>Why letting an LLM agent create drafts but never send them is a good defence against prompt injection in email.</summary></entry>
+<entry><title>Notes on a new open-weight DeepSeek R1 distill</title><link href="https://example.com/simonw/deepseek"/><id>sw2</id><updated>2026-11-16T19:00:00Z</updated><summary>Trying the 8B distill locally: reasoning quality, speed on a laptop, and license notes.</summary></entry>
+</feed>

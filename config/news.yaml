@@ -1,0 +1,24 @@
+# News digest sources and ranking. Add/remove feeds freely (RSS or Atom).
+title: AI news digest
+interests:                   # what the LLM ranks for
+  - large language models
+  - local LLMs / Ollama / MLX / llama.cpp
+  - AI agents and tool use
+  - RAG and embeddings
+  - AI security and prompt injection
+  - open-weight model releases
+  - PyTorch
+  - Apple Silicon ML
+lookback_hours: 30           # ignore older items
+max_candidates: 24           # how many items the LLM reads (pre-ranked by keywords)
+batch_size: 6                # items per LLM call
+top_n: 8                     # items in the digest
+min_score: 4                 # drop items scored below this (0-10)
+
+sources:
+  # `sample` = offline file in data/samples/feeds used by --sample
+  - {name: Hacker News (AI), url: "https://hnrss.org/newest?q=LLM+OR+GPT+OR+Ollama+OR+%22AI+agent%22&points=50", weight: 1.0, sample: hn.xml}
+  - {name: Hugging Face Blog, url: "https://huggingface.co/blog/feed.xml", weight: 1.1, sample: huggingface.xml}
+  - {name: Simon Willison, url: "https://simonwillison.net/atom/everything/", weight: 1.1, sample: simonw.xml}
+  - {name: arXiv cs.CL, url: "https://rss.arxiv.org/rss/cs.CL", weight: 0.8, max_items: 40}
+  - {name: Ollama Blog, url: "https://ollama.com/blog/rss.xml", weight: 1.0, enabled: false}

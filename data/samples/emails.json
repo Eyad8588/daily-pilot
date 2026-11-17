@@ -1,0 +1,23 @@
+[
+  {"id": "s1", "from": "PagerDuty <alerts@pagerduty.com>", "date": "2026-11-18T06:42:00+02:00",
+   "subject": "[TRIGGERED] Production API is down — 503 errors on /v1/chat",
+   "body": "Incident #4821 triggered. The production API is returning 503 errors on /v1/chat since 06:40. Error rate 87%. Please acknowledge and investigate immediately."},
+  {"id": "s2", "from": "Sara Ahmed <sara@client-co.com>", "date": "2026-11-17T18:05:00+02:00",
+   "subject": "Proposal review before Thursday's call",
+   "body": "Hi Eyad,\n\nCould you review the attached proposal for the RAG project and send me your comments by Wednesday? We present it to the board on Thursday at 11:00. Also please confirm whether the local-model setup can run on their M-series Macs.\n\nThanks,\nSara"},
+  {"id": "s3", "from": "GitHub <noreply@github.com>", "date": "2026-11-17T21:10:00+02:00",
+   "subject": "[eyad/rag-vault] Dependabot alert: critical vulnerability in pyyaml",
+   "body": "A critical severity vulnerability was found in a dependency of eyad/rag-vault. Upgrade to the patched version."},
+  {"id": "s4", "from": "Medium Daily Digest <noreply@medium.com>", "date": "2026-11-18T05:00:00+02:00",
+   "subject": "10 AI tools you need in 2027",
+   "body": "Today's highlights for you... Unsubscribe at any time."},
+  {"id": "s5", "from": "Omar Hassan <omar@university.edu>", "date": "2026-11-17T12:30:00+02:00",
+   "subject": "Slides from yesterday's talk",
+   "body": "Hey Eyad, here are the slides from the KV-cache talk, as promised. No need to reply — just sharing. Cheers, Omar"},
+  {"id": "s6", "from": "Accounts <billing@cloudhost.io>", "date": "2026-11-17T09:00:00+02:00",
+   "subject": "Invoice INV-2291 due in 5 days",
+   "body": "Your invoice INV-2291 for $42.00 is due on 2026-11-23. Please pay to avoid service interruption."},
+  {"id": "s7", "from": "Mona <mona@friends.example>", "date": "2026-11-17T20:15:00+02:00",
+   "subject": "Dinner on Saturday?",
+   "body": "Are you free for dinner Saturday at 8? Let me know by tomorrow so I can book."}
+]
