@@ -1,19 +1,31 @@
+# Python / uv
 .venv/
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Secrets — never commit
 .env
+.env.*
+!.env.example
 secrets/*
 !secrets/.gitkeep
-data/*.sqlite3
+credentials*.json
+*credentials*.json
+token*.json
+*token*.json
+client_secret*.json
+
+# Local data (tasks, processed mail, wake state) and logs
+*.db
+*.sqlite
+*.sqlite3
 data/*.json
 data/logs/
+*.log
 launchd/generated/
+
+# OS / local tooling
 .DS_Store
-
-# graft's local graph cache — regenerable, not committed (run `graft build`).
-/graft/
-
-# local tooling
 .ignore
 graft/
