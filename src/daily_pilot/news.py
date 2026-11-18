@@ -95,6 +95,8 @@ def dedupe_and_filter(
     items: list[NewsItem], lookback_hours: float, now: datetime | None = None
 ) -> list[NewsItem]:
     now = now or datetime.now(timezone.utc)
+    if now.tzinfo is None:
+        now = now.astimezone()  # treat naive times as local time
     cutoff = now - timedelta(hours=lookback_hours)
     seen: dict[str, NewsItem] = {}
     for it in items:

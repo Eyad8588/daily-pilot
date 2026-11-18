@@ -2,6 +2,21 @@
 
 **A private morning assistant for the Mac: a Telegram AI-news digest, actions that run when the Mac wakes, and a Gmail assistant that triages mail into tasks and a daily plan. It runs on local LLMs only.**
 
+## What it does (in simple words)
+
+Daily Pilot is a small helper that lives on your Mac and talks to you through a Telegram bot.
+Every morning it reads AI news sites, picks the stories that matter to you, and sends a short summary.
+It watches your Gmail: it pings you about urgent mail, turns "please do X by Friday" emails into a to-do list, and can write reply drafts for you to check. It never sends email itself.
+It combines that to-do list with your Google Calendar into a plan for the day.
+All the "thinking" is done by an AI model running on your own Mac (Ollama), so your mail never goes to a cloud AI service.
+
+### A day with Daily Pilot
+
+1. **07:45, the Mac wakes up.** Daily Pilot starts Ollama, opens your calendar, Gmail and editor, and sends *"Good morning!"* with **today's plan**: meetings from Google Calendar, with your tasks fitted into the gaps.
+2. **08:00, news.** A Telegram message with the top AI stories of the last day, each with a one-line summary.
+3. **All day, mail.** Every 15 minutes it checks new Gmail. Urgent mail (an outage, a security alert) triggers an alert right away. Mail that asks you to do something becomes a task with a due date, and tomorrow's plan includes it.
+4. **You stay in control.** Replies are only drafts in Gmail for you to review. Wake actions are limited to a list you approve. Everything can run in dry-run mode, which only prints.
+
 No cloud LLM APIs: every model call goes to [Ollama](https://ollama.com) on `localhost`. It runs in **dry-run mode by default** (messages are printed, nothing is sent) and it **never sends email**.
 
 ---
@@ -28,12 +43,22 @@ No cloud LLM APIs: every model call goes to [Ollama](https://ollama.com) on `loc
 
 ## Screenshots
 
-> TODO: screenshots will be added in a later pass (`docs/screenshots/`).
+All screenshots come from a real `--dry-run` on the bundled **sample data**, with `qwen3.5:4b` writing the text. The Telegram messages are shown in a chat mockup. Regenerate them with `uv run python scripts/make_screenshots.py` (needs Google Chrome).
 
-| | |
-|---|---|
-| TODO: Telegram news digest (`docs/screenshots/news-digest.png`) | TODO: urgent-mail alert (`docs/screenshots/urgent-alert.png`) |
-| TODO: morning plan (`docs/screenshots/daily-plan.png`) | TODO: `daily-pilot demo` in the terminal (`docs/screenshots/demo-cli.png`) |
+**News digest:** the local model scored and summarized the sample feeds; off-topic items were dropped.
+![Telegram news digest](docs/screenshots/news-digest.png)
+
+**Urgent-mail alert:** sample emails were triaged; only the outage and the security alert were urgent enough to ping.
+![Urgent mail alert](docs/screenshots/urgent-alert.png)
+
+**Daily plan:** tasks taken from emails were fitted between calendar events, with a short summary from the model.
+![Daily plan](docs/screenshots/daily-plan.png)
+
+**Wake actions:** what runs when the Mac wakes (dry-run). A second wake 5 minutes later is ignored.
+![Wake actions run log](docs/screenshots/wake-actions.png)
+
+**Config:** `config/wake.yaml`, where every app and URL host must be on the allow-list.
+![config/wake.yaml](docs/screenshots/config-wake.png)
 
 ---
 
@@ -85,7 +110,7 @@ cd daily-pilot
 uv sync
 uv run daily-pilot demo --model qwen3.5:4b   # every feature on bundled sample data with the local LLM (~3 min)
 uv run daily-pilot demo --no-llm             # same, keyword fallback, instant
-uv run pytest                                # 55 tests; Gmail/Calendar/Telegram are mocked
+uv run pytest                                # 56 tests; Gmail/Calendar/Telegram are mocked
 ```
 
 Requirements: macOS, uv, and Ollama with `qwen3.5:9b` or `qwen3.5:4b` pulled.
@@ -214,8 +239,8 @@ Jobs missed while the Mac was asleep run when it wakes. Logs go to `data/logs/`.
 daily-pilot/
 ├── config/                 settings.yaml, news.yaml, mail.yaml, wake.yaml
 ├── data/samples/           sample emails, calendar and feeds for --sample / demo / tests
-├── docs/screenshots/       (TODO) screenshots
-├── scripts/                install_launchd.sh, uninstall_launchd.sh
+├── docs/screenshots/       README screenshots (sample data)
+├── scripts/                install_launchd.sh, uninstall_launchd.sh, make_screenshots.py
 ├── secrets/                OAuth client + token (git-ignored)
 ├── src/daily_pilot/
 │   ├── cli.py              commands

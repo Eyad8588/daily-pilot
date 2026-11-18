@@ -91,3 +91,8 @@ def test_interest_terms_and_keyword_score():
     hit = news.NewsItem("Ollama on Apple Silicon", "u", "s", None, "fast local LLMs")
     miss = news.NewsItem("Sourdough", "u", "s", None, "bread")
     assert news.keyword_score(hit, ["local LLMs / Ollama", "Apple Silicon"]) > news.keyword_score(miss, ["local LLMs / Ollama"])
+
+
+def test_naive_now_is_accepted():
+    items = news.fetch_sources(CFG["sources"], sample_dir=FEEDS)
+    assert news.dedupe_and_filter(items, 24 * 365 * 50, now=datetime(2026, 11, 18, 8, 0))
